@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ResumIA</title>
+  <link rel="shortcut icon" href="ResumIA chat picture.png"> <!-- CAMBIO: Le puse el logo a la pestaña -->
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  
+</head>
+<body>
+
+<!-- Pagina principal -->
+  <div class="sidebar"> <!-- Barra lateral (superior) -->
+    <div class="top-sidebar">
+      <h1>ResumIA</h1>
+
+      <div class="top-menu"> <!-- Barra lateral (menu) -->
+        <input type="text" id="search-summaries" placeholder="Buscar resumen" />
+        <button id="create-button">+ Crear resumen</button>
+      </div>
+
+      <!-- Lista de resúmenes guardados -->
+      <div class="saved-list">
+        <h2>Resúmenes</h2>
+        <ul id="summaries-list" aria-live="polite"></ul>
+      </div>
+
+    </div> 
+
+    <div class="bottom-menu"> <!-- Barra lateral (menu inferior) -->
+      <button id="settings-button">Ajustes</button>
+    </div>
+  </div>
+
+  <div class="main-page"> <!-- Zona principal -->
+    <div class="header"> <!-- Zona principal superior -->
+      <div class="icon-image"> <!-- Imagen de perfil de ResumIA -->
+      </div>
+      <div class="message">¡Hola! Soy ResumIA, por favor inserta tu archivo para resumirlo.</div> <!-- Mensaje introductorio -->
+    </div>
+<div id="response" class="markdown-body"> <!-- salida de Javascript TENTATIVO--></div>
+
+
+    <div class="input-file"> <!-- Input del archivo -->
+      <div class="input-container"> <!-- Carga del archivo -->
+        <input type="file" id = "fileInput"> <!-- Boton de seleccionar arhivo-->
+        <button id="uploadBtn">Enviar</button> <!-- Botón de subir y procesar archivo-->
+        
+        <!-- Loader: se mostrará mientras se procesa -->
+        <div id="loader" class="loader hidden" aria-hidden="true" role="status" aria-live="polite">
+          <span class="spinner" aria-hidden="true"></span>
+          <span class="loader-text">Procesando...</span>
+        </div>
+
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Pestaña de ajustes -->
+  <div id="Setting-page" class="popup" aria-hidden="true">
+    <div class="popup-content" role="dialog" aria-modal="true" aria-labelledby="ajustes-title">
+      <h2 id="settings-title">Ajustes</h2>
+
+      <div class="setting-row"> <!-- Cambiar tamaño de la fuente -->
+        <span>Cambiar tamaño de la fuente</span>
+        <select id="fontsize-selector">
+          <option value="small">Pequeño</option>
+          <option value="medium" selected>Mediano</option>
+          <option value="large">Grande</option>
+        </select>
+      </div>
+
+      <div class="setting-row"> <!-- Eliminar todos los resumenes -->
+        <span>Elimina todos tus resúmenes</span>
+        <button class="delete-btn" id="deleteAll">Eliminar resúmenes</button>
+      </div>
+
+      <button class="close-popup" id="cerrarAjustes">Cerrar</button>
+    </div>
+  </div>
+
+  
+  <script src="behavior.js"></script>
+  
+</body>
+</html>
